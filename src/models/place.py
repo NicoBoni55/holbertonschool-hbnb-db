@@ -2,6 +2,7 @@
 Place related functionality
 """
 
+from sqlalchemy import Column, Integer, String, Float
 from src import repo
 from src.models.base import Base
 from src.models.city import City
@@ -10,18 +11,19 @@ from src.models.user import User
 
 class Place(Base):
     """Place representation"""
+    __tablename__ = 'places'
 
-    name: str
-    description: str
-    address: str
-    latitude: float
-    longitude: float
-    host_id: str
-    city_id: str
-    price_per_night: int
-    number_of_rooms: int
-    number_of_bathrooms: int
-    max_guests: int
+    name = Column(String, nullable=False)
+    description = Column(String, nullable =False)
+    address = Column(String, nullable =False)
+    latitude = Column(Float, nullable =False)
+    longitude = Column(Float, nullable =False)
+    host_id = Column(String, nullable =False)
+    city_id = Column(String, nullable =False)
+    price_per_night = Column(Integer, nullable =False)
+    number_of_rooms = Column(Integer, nullable =False)
+    number_of_bathrooms = Column(Integer, nullable =False)
+    max_guests = Column(Integer, nullable =False)
 
     def __init__(self, data: dict | None = None, **kw) -> None:
         """Dummy init"""

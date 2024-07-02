@@ -2,14 +2,17 @@
 Amenity related functionality
 """
 
+from sqlalchemy import Column, Integer, String
 from src.models.base import Base
 from src import repo
+from datetime import datetime
 
 
 class Amenity(Base):
     """Amenity representation"""
-
-    name: str
+    __tablename__ = 'amenities'
+    
+    name = Column(String, nullable=False)
 
     def __init__(self, name: str, **kw) -> None:
         """Dummy init"""
@@ -64,9 +67,10 @@ class Amenity(Base):
 
 class PlaceAmenity(Base):
     """PlaceAmenity representation"""
+    __tablename__ = 'place amenities'
 
-    place_id: str
-    amenity_id: str
+    place_id = Column(String, nullable=False)
+    amenity_id = Column(String, nullable=False)
 
     def __init__(self, place_id: str, amenity_id: str, **kw) -> None:
         """Dummy init"""

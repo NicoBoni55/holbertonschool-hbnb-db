@@ -3,7 +3,8 @@ Country related functionality
 """
 
 from src import repo
-
+from sqlalchemy import Column, Integer, String, Float
+from datetime import datetime
 
 class Country:
     """
@@ -13,10 +14,11 @@ class Country:
 
     This class is used to get and list countries
     """
+    __tablename__ = 'countries'
 
-    name: str
-    code: str
-    cities: list
+    name = Column(String, nullable=False)
+    code = Column(String, nullable=False)
+    # cities = Column(String, nullable=False)
 
     def __init__(self, name: str, code: str, **kw) -> None:
         """Dummy init"""

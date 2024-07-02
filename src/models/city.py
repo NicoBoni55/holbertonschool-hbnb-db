@@ -2,16 +2,19 @@
 City related functionality
 """
 
+from sqlalchemy import Column, Integer, String
 from src.models.base import Base
 from src import repo
 from src.models.country import Country
+from datetime import datetime
 
 
 class City(Base):
     """City representation"""
+    __tablename__ = 'cities'
 
-    name: str
-    country_code: str
+    name = Column(String, nullable=False)
+    country_code = Column(String)
 
     def __init__(self, name: str, country_code: str, **kw) -> None:
         """Dummy init"""

@@ -1,5 +1,5 @@
 """ Abstract base class for all models """
-
+from sqlalchemy import Column, Integer, String, Float
 from datetime import datetime
 from typing import Any, Optional
 from src import repo
@@ -7,14 +7,14 @@ import uuid
 from abc import ABC, abstractmethod
 
 
-class Base(ABC):
+class Base:
     """
     Base Interface for all models
     """
-
-    id: str
-    created_at: datetime
-    updated_at: datetime
+    
+    id = Column(String, primary_key=True)
+    created_at = Column(datetime)
+    updated_at = Column(datetime)
 
     def __init__(
         self,

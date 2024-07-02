@@ -2,18 +2,21 @@
 User related functionality
 """
 
+from sqlalchemy import Column, Integer, String
 from src import repo
 from typing import Optional
 from src.models.base import Base
+from datetime import datetime
 
 
 class User(Base):
     """User representation"""
+    __tablename__ = 'users'
 
-    email: str
-    password: str | None
-    first_name: str
-    last_name: str
+    email = Column(String, nullable=False)
+    password = Column(String, nullable=True)
+    first_name = Column(String, nullable=False)
+    last_name = Column(String, nullable=False)
 
     def __init__(
         self,
