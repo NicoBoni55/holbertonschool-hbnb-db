@@ -48,7 +48,7 @@ class DevelopmentConfig(Config):
     ```
     """
 
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite:///hbnb_dev.db")
+    SQLALCHEMY_DATABASE_URI = os.getenv("SQLITE_DATABASE_URL")
     DEBUG = True
 
 
@@ -84,6 +84,11 @@ class ProductionConfig(Config):
     TESTING = False
     DEBUG = False
 
-    SQLALCHEMY_DATABASE_URI = os.getenv(
-        "DATABASE_URL", "postgresql://user:password@localhost/hbnb_prod"
-    )
+    SQLALCHEMY_DATABASE_URI = os.getenv("POSTGRESQL_DATABASE_URL")
+
+config = {
+    'development': DevelopmentConfig,
+    'production' : ProductionConfig,
+    'testing' : TestingConfig,
+    'default' : DevelopmentConfig
+}
