@@ -13,13 +13,13 @@ class Place(Base):
     """Place representation"""
     __tablename__ = 'places'
 
-    name = Column(String, nullable=False)
-    description = Column(String, nullable =False)
-    address = Column(String, nullable =False)
+    name = Column(String(60), nullable=False)
+    description = Column(String(250), nullable =False)
+    address = Column(String(250), nullable =False)
     latitude = Column(Float, nullable =False)
     longitude = Column(Float, nullable =False)
-    host_id = Column(String, nullable =False)
-    city_id = Column(String, nullable =False)
+    host_id = Column(String(250), nullable =False)
+    city_id = Column(String(250), nullable =False)
     price_per_night = Column(Integer, nullable =False)
     number_of_rooms = Column(Integer, nullable =False)
     number_of_bathrooms = Column(Integer, nullable =False)

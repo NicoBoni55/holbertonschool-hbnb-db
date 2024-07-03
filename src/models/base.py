@@ -1,5 +1,5 @@
 """ Abstract base class for all models """
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, String
 from datetime import datetime
 from typing import Any, Optional
 from src import repo
@@ -12,7 +12,7 @@ class Base:
     Base Interface for all models
     """
     
-    id = Column(String, primary_key=True)
+    id = Column(String(250), primary_key=True)
     created_at = Column(datetime)
     updated_at = Column(datetime)
 

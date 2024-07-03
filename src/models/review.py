@@ -2,6 +2,7 @@
 Review related functionality
 """
 
+from sqlalchemy import Column, String, Float
 from src import repo
 from src.models.base import Base
 from src.models.place import Place
@@ -11,10 +12,12 @@ from src.models.user import User
 class Review(Base):
     """Review representation"""
 
-    place_id: str
-    user_id: str
-    comment: str
-    rating: float
+    __tablename__ = 'reviews'
+
+    place_id = Column(String(250), nullable=False)
+    user_id = Column(String(250), nullable=False)
+    comment = Column(String(250), nullable=False)
+    rating = Column(Float, nullable=False)
 
     def __init__(
         self, place_id: str, user_id: str, comment: str, rating: float, **kw

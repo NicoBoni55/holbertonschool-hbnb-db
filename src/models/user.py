@@ -13,10 +13,10 @@ class User(Base):
     """User representation"""
     __tablename__ = 'users'
 
-    email = Column(String, nullable=False)
-    password = Column(String, nullable=True)
-    first_name = Column(String, nullable=False)
-    last_name = Column(String, nullable=False)
+    email = Column(String(250), nullable=False)
+    password = Column(String(250), nullable=True)
+    first_name = Column(String(250), nullable=False)
+    last_name = Column(String(250), nullable=False)
 
     def __init__(
         self,

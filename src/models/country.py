@@ -16,8 +16,8 @@ class Country:
     """
     __tablename__ = 'countries'
 
-    name = Column(String, nullable=False)
-    code = Column(String, nullable=False)
+    name = Column(String(60), nullable=False)
+    code = Column(String(250), nullable=False)
     # cities = Column(String, nullable=False)
 
     def __init__(self, name: str, code: str, **kw) -> None:

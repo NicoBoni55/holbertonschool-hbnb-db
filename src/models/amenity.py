@@ -12,7 +12,7 @@ class Amenity(Base):
     """Amenity representation"""
     __tablename__ = 'amenities'
     
-    name = Column(String, nullable=False)
+    name = Column(String(60), nullable=False)
 
     def __init__(self, name: str, **kw) -> None:
         """Dummy init"""
@@ -69,8 +69,8 @@ class PlaceAmenity(Base):
     """PlaceAmenity representation"""
     __tablename__ = 'place amenities'
 
-    place_id = Column(String, nullable=False)
-    amenity_id = Column(String, nullable=False)
+    place_id = Column(String(250), nullable=False)
+    amenity_id = Column(String(250), nullable=False)
 
     def __init__(self, place_id: str, amenity_id: str, **kw) -> None:
         """Dummy init"""

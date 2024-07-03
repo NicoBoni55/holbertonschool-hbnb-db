@@ -13,8 +13,8 @@ class City(Base):
     """City representation"""
     __tablename__ = 'cities'
 
-    name = Column(String, nullable=False)
-    country_code = Column(String)
+    name = Column(String(60), nullable=False)
+    country_code = Column(String(250))
 
     def __init__(self, name: str, country_code: str, **kw) -> None:
         """Dummy init"""
