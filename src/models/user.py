@@ -2,14 +2,14 @@
 User related functionality
 """
 
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, String
 from src import repo
 from typing import Optional
 from src.models.base import Base
-from datetime import datetime
+from src import db
 
 
-class User(Base):
+class User(Base, db.Model):
     """User representation"""
     __tablename__ = 'users'
 

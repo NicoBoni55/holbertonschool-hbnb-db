@@ -6,10 +6,10 @@ from sqlalchemy import Column, Integer, String
 from src.models.base import Base
 from src import repo
 from src.models.country import Country
-from datetime import datetime
+from src import db
 
 
-class City(Base):
+class City(Base, db.Model):
     """City representation"""
     __tablename__ = 'cities'
 

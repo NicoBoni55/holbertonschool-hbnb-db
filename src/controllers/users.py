@@ -64,5 +64,5 @@ def delete_user(user_id: str):
     """Deletes a user by ID"""
     if not User.delete(user_id):
         abort(404, f"User with ID {user_id} not found")
-
+    
     return "", 204

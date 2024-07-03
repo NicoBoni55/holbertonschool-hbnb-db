@@ -1,20 +1,21 @@
 """ Abstract base class for all models """
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, DateTime
 from datetime import datetime
 from typing import Any, Optional
 from src import repo
 import uuid
 from abc import ABC, abstractmethod
+from src import db
 
 
 class Base:
     """
     Base Interface for all models
     """
-    
+
     id = Column(String(250), primary_key=True)
-    created_at = Column(datetime)
-    updated_at = Column(datetime)
+    created_at = Column(DateTime)
+    updated_at = Column(DateTime)
 
     def __init__(
         self,

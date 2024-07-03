@@ -2,11 +2,14 @@
 
 from flask import Flask
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+
 
 from src.persistence.repository import RepositoryManager
 
 cors = CORS()
 repo = RepositoryManager()
+db = SQLAlchemy()
 
 
 def create_app(config_class="src.config.DevelopmentConfig") -> Flask:
@@ -33,6 +36,7 @@ def register_extensions(app: Flask) -> None:
     cors.init_app(app, resources={r"/*": {"origins": "*"}})
     repo.init_app(app)
     # Further extensions can be added here
+    db.init_app(app)
 
 
 def register_routes(app: Flask) -> None:

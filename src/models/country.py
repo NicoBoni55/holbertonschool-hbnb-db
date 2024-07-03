@@ -3,8 +3,7 @@ Country related functionality
 """
 
 from src import repo
-from sqlalchemy import Column, Integer, String, Float
-from datetime import datetime
+from sqlalchemy import Column, String
 
 class Country:
     """
